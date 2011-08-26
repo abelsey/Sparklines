@@ -1,0 +1,22 @@
+Sparklines - an iOS Custom View Implementation
+----------------------------------------------
+
+ Sparklines are small, word-sized graphics showing historical values for a
+measured data item.They were described by Edward Tufte in his 1982 book "The
+Visual Display of Quantitative Information", and are designed to represent
+a lot of data in a small space.
+
+ This project is an iOS custom view implementation of sparklines, and is
+released under the BSD license. While the custom view consists of two
+Objective-C files, the code is provided as a complete iOS Xcode project that
+will build and run on Xcode V4.1 or greater (it will probably build and run
+under earlier versions but I haven't confirmed that). Both the iPhone/iPod
+Touch and the iPad is supported by this demo.
+
+ Please read the embedded documentation in the SparklineView.h file; a
+doxygen config file is also provided, so you can build your own HTML
+documentation, which includes a graphical explanation of what sparklines
+are.
+
+------------------------
+Andy Belsey, August 2011

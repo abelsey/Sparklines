@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A15891BC14062D3C007D1D8B /* glucose_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = A15891B914062D3C007D1D8B /* glucose_data.txt */; };
+		A15891BD14062D3C007D1D8B /* heartRate_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = A15891BA14062D3C007D1D8B /* heartRate_data.txt */; };
+		A15891BE14062D3C007D1D8B /* temperature_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = A15891BB14062D3C007D1D8B /* temperature_data.txt */; };
+		A15891C514062F3B007D1D8B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891C414062F3B007D1D8B /* Icon.png */; };
+		A15891C714062F40007D1D8B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891C614062F40007D1D8B /* Icon@2x.png */; };
+		A15891C914062F45007D1D8B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891C814062F45007D1D8B /* Icon-72.png */; };
+		A15891CD14062F93007D1D8B /* ASBSparkLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891CC14062F93007D1D8B /* ASBSparkLineView.m */; };
+		A15891D714063196007D1D8B /* SparklinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891D614063196007D1D8B /* SparklinesViewController.m */; };
+		A15891DA14063296007D1D8B /* SparklinesViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891D914063296007D1D8B /* SparklinesViewController_iPhone.m */; };
+		A15891DC14063340007D1D8B /* SparklinesViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15891DB14063340007D1D8B /* SparklinesViewController_iPhone.xib */; };
+		A15891DE14063F90007D1D8B /* SparklinesViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15891DD14063F90007D1D8B /* SparklinesViewController_iPad.xib */; };
+		A15891E114063FB1007D1D8B /* SparklinesViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891E014063FB1007D1D8B /* SparklinesViewController_iPad.m */; };
+		A15891E9140647F7007D1D8B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891E8140647F7007D1D8B /* Default@2x.png */; };
+		A15891EC14064A1A007D1D8B /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891EA14064800007D1D8B /* Default-Portrait~ipad.png */; };
+		A15891EE14064A21007D1D8B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891ED14064A21007D1D8B /* Default-Landscape~ipad.png */; };
+		A15891EF14064A2C007D1D8B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A15891E6140647F2007D1D8B /* Default.png */; };
+		A15891F11407B011007D1D8B /* README in Resources */ = {isa = PBXBuildFile; fileRef = A15891F01407B011007D1D8B /* README */; };
+		A15891F71407B2E6007D1D8B /* Doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = A15891F61407B2E6007D1D8B /* Doxyfile */; };
+		A182206614062C1F0061AB1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A182206514062C1F0061AB1A /* UIKit.framework */; };
+		A182206814062C1F0061AB1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A182206714062C1F0061AB1A /* Foundation.framework */; };
+		A182206A14062C1F0061AB1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A182206914062C1F0061AB1A /* CoreGraphics.framework */; };
+		A182207014062C1F0061AB1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A182206E14062C1F0061AB1A /* InfoPlist.strings */; };
+		A182207214062C1F0061AB1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A182207114062C1F0061AB1A /* main.m */; };
+		A182207614062C1F0061AB1A /* SparklinesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A182207514062C1F0061AB1A /* SparklinesAppDelegate.m */; };
+		A182207A14062C1F0061AB1A /* SparklinesAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = A182207914062C1F0061AB1A /* SparklinesAppDelegate_iPhone.m */; };
+		A182207D14062C1F0061AB1A /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A182207B14062C1F0061AB1A /* MainWindow_iPhone.xib */; };
+		A182208114062C1F0061AB1A /* SparklinesAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = A182208014062C1F0061AB1A /* SparklinesAppDelegate_iPad.m */; };
+		A182208414062C1F0061AB1A /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A182208214062C1F0061AB1A /* MainWindow_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A15891B914062D3C007D1D8B /* glucose_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = glucose_data.txt; sourceTree = "<group>"; };
+		A15891BA14062D3C007D1D8B /* heartRate_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = heartRate_data.txt; sourceTree = "<group>"; };
+		A15891BB14062D3C007D1D8B /* temperature_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temperature_data.txt; sourceTree = "<group>"; };
+		A15891C414062F3B007D1D8B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A15891C614062F40007D1D8B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		A15891C814062F45007D1D8B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		A15891CB14062F93007D1D8B /* ASBSparkLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBSparkLineView.h; sourceTree = "<group>"; };
+		A15891CC14062F93007D1D8B /* ASBSparkLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBSparkLineView.m; sourceTree = "<group>"; };
+		A15891D514063196007D1D8B /* SparklinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklinesViewController.h; sourceTree = "<group>"; };
+		A15891D614063196007D1D8B /* SparklinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparklinesViewController.m; sourceTree = "<group>"; };
+		A15891D814063296007D1D8B /* SparklinesViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparklinesViewController_iPhone.h; path = iPhone/SparklinesViewController_iPhone.h; sourceTree = "<group>"; };
+		A15891D914063296007D1D8B /* SparklinesViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SparklinesViewController_iPhone.m; path = iPhone/SparklinesViewController_iPhone.m; sourceTree = "<group>"; };
+		A15891DB14063340007D1D8B /* SparklinesViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SparklinesViewController_iPhone.xib; path = iPhone/SparklinesViewController_iPhone.xib; sourceTree = "<group>"; };
+		A15891DD14063F90007D1D8B /* SparklinesViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SparklinesViewController_iPad.xib; path = iPad/SparklinesViewController_iPad.xib; sourceTree = "<group>"; };
+		A15891DF14063FB1007D1D8B /* SparklinesViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparklinesViewController_iPad.h; path = iPad/SparklinesViewController_iPad.h; sourceTree = "<group>"; };
+		A15891E014063FB1007D1D8B /* SparklinesViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SparklinesViewController_iPad.m; path = iPad/SparklinesViewController_iPad.m; sourceTree = "<group>"; };
+		A15891E6140647F2007D1D8B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A15891E8140647F7007D1D8B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A15891EA14064800007D1D8B /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		A15891ED14064A21007D1D8B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		A15891F01407B011007D1D8B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
+		A15891F61407B2E6007D1D8B /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = SOURCE_ROOT; };
+		A182206114062C1F0061AB1A /* Sparklines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparklines.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A182206514062C1F0061AB1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A182206714062C1F0061AB1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A182206914062C1F0061AB1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A182206D14062C1F0061AB1A /* Sparklines-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sparklines-Info.plist"; sourceTree = "<group>"; };
+		A182206F14062C1F0061AB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A182207114062C1F0061AB1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A182207314062C1F0061AB1A /* Sparklines-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sparklines-Prefix.pch"; sourceTree = "<group>"; };
+		A182207414062C1F0061AB1A /* SparklinesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SparklinesAppDelegate.h; sourceTree = "<group>"; };
+		A182207514062C1F0061AB1A /* SparklinesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparklinesAppDelegate.m; sourceTree = "<group>"; };
+		A182207814062C1F0061AB1A /* SparklinesAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SparklinesAppDelegate_iPhone.h; path = iPhone/SparklinesAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		A182207914062C1F0061AB1A /* SparklinesAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SparklinesAppDelegate_iPhone.m; path = iPhone/SparklinesAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		A182207C14062C1F0061AB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		A182207F14062C1F0061AB1A /* SparklinesAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SparklinesAppDelegate_iPad.h; path = iPad/SparklinesAppDelegate_iPad.h; sourceTree = "<group>"; };
+		A182208014062C1F0061AB1A /* SparklinesAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SparklinesAppDelegate_iPad.m; path = iPad/SparklinesAppDelegate_iPad.m; sourceTree = "<group>"; };
+		A182208314062C1F0061AB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A182205E14062C1F0061AB1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A182206614062C1F0061AB1A /* UIKit.framework in Frameworks */,
+				A182206814062C1F0061AB1A /* Foundation.framework in Frameworks */,
+				A182206A14062C1F0061AB1A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A15891CA14062F75007D1D8B /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				A15891CB14062F93007D1D8B /* ASBSparkLineView.h */,
+				A15891CC14062F93007D1D8B /* ASBSparkLineView.m */,
+			);
+			name = "Custom View";
+			sourceTree = "<group>";
+		};
+		A182205614062C1F0061AB1A = {
+			isa = PBXGroup;
+			children = (
+				A182206B14062C1F0061AB1A /* Sparklines */,
+				A15891C414062F3B007D1D8B /* Icon.png */,
+				A15891E6140647F2007D1D8B /* Default.png */,
+				A15891C614062F40007D1D8B /* Icon@2x.png */,
+				A15891E8140647F7007D1D8B /* Default@2x.png */,
+				A15891C814062F45007D1D8B /* Icon-72.png */,
+				A15891EA14064800007D1D8B /* Default-Portrait~ipad.png */,
+				A15891ED14064A21007D1D8B /* Default-Landscape~ipad.png */,
+				A182206414062C1F0061AB1A /* Frameworks */,
+				A182206214062C1F0061AB1A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A182206214062C1F0061AB1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A182206114062C1F0061AB1A /* Sparklines.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A182206414062C1F0061AB1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A182206514062C1F0061AB1A /* UIKit.framework */,
+				A182206714062C1F0061AB1A /* Foundation.framework */,
+				A182206914062C1F0061AB1A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A182206B14062C1F0061AB1A /* Sparklines */ = {
+			isa = PBXGroup;
+			children = (
+				A182207414062C1F0061AB1A /* SparklinesAppDelegate.h */,
+				A182207514062C1F0061AB1A /* SparklinesAppDelegate.m */,
+				A15891D514063196007D1D8B /* SparklinesViewController.h */,
+				A15891D614063196007D1D8B /* SparklinesViewController.m */,
+				A15891CA14062F75007D1D8B /* Custom View */,
+				A182207714062C1F0061AB1A /* iPhone */,
+				A182207E14062C1F0061AB1A /* iPad */,
+				A182206C14062C1F0061AB1A /* Supporting Files */,
+			);
+			path = Sparklines;
+			sourceTree = "<group>";
+		};
+		A182206C14062C1F0061AB1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A15891F61407B2E6007D1D8B /* Doxyfile */,
+				A15891F01407B011007D1D8B /* README */,
+				A15891B914062D3C007D1D8B /* glucose_data.txt */,
+				A15891BA14062D3C007D1D8B /* heartRate_data.txt */,
+				A15891BB14062D3C007D1D8B /* temperature_data.txt */,
+				A182206D14062C1F0061AB1A /* Sparklines-Info.plist */,
+				A182206E14062C1F0061AB1A /* InfoPlist.strings */,
+				A182207114062C1F0061AB1A /* main.m */,
+				A182207314062C1F0061AB1A /* Sparklines-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A182207714062C1F0061AB1A /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				A182207814062C1F0061AB1A /* SparklinesAppDelegate_iPhone.h */,
+				A182207914062C1F0061AB1A /* SparklinesAppDelegate_iPhone.m */,
+				A182207B14062C1F0061AB1A /* MainWindow_iPhone.xib */,
+				A15891D814063296007D1D8B /* SparklinesViewController_iPhone.h */,
+				A15891D914063296007D1D8B /* SparklinesViewController_iPhone.m */,
+				A15891DB14063340007D1D8B /* SparklinesViewController_iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		A182207E14062C1F0061AB1A /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				A182207F14062C1F0061AB1A /* SparklinesAppDelegate_iPad.h */,
+				A182208014062C1F0061AB1A /* SparklinesAppDelegate_iPad.m */,
+				A182208214062C1F0061AB1A /* MainWindow_iPad.xib */,
+				A15891DF14063FB1007D1D8B /* SparklinesViewController_iPad.h */,
+				A15891E014063FB1007D1D8B /* SparklinesViewController_iPad.m */,
+				A15891DD14063F90007D1D8B /* SparklinesViewController_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A182206014062C1F0061AB1A /* Sparklines */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A182208714062C1F0061AB1A /* Build configuration list for PBXNativeTarget "Sparklines" */;
+			buildPhases = (
+				A182205D14062C1F0061AB1A /* Sources */,
+				A182205E14062C1F0061AB1A /* Frameworks */,
+				A182205F14062C1F0061AB1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sparklines;
+			productName = Sparklines;
+			productReference = A182206114062C1F0061AB1A /* Sparklines.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A182205814062C1F0061AB1A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A182205B14062C1F0061AB1A /* Build configuration list for PBXProject "Sparklines" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A182205614062C1F0061AB1A;
+			productRefGroup = A182206214062C1F0061AB1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A182206014062C1F0061AB1A /* Sparklines */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A182205F14062C1F0061AB1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A182207014062C1F0061AB1A /* InfoPlist.strings in Resources */,
+				A182207D14062C1F0061AB1A /* MainWindow_iPhone.xib in Resources */,
+				A182208414062C1F0061AB1A /* MainWindow_iPad.xib in Resources */,
+				A15891BC14062D3C007D1D8B /* glucose_data.txt in Resources */,
+				A15891BD14062D3C007D1D8B /* heartRate_data.txt in Resources */,
+				A15891BE14062D3C007D1D8B /* temperature_data.txt in Resources */,
+				A15891C514062F3B007D1D8B /* Icon.png in Resources */,
+				A15891C714062F40007D1D8B /* Icon@2x.png in Resources */,
+				A15891C914062F45007D1D8B /* Icon-72.png in Resources */,
+				A15891DC14063340007D1D8B /* SparklinesViewController_iPhone.xib in Resources */,
+				A15891DE14063F90007D1D8B /* SparklinesViewController_iPad.xib in Resources */,
+				A15891E9140647F7007D1D8B /* Default@2x.png in Resources */,
+				A15891EC14064A1A007D1D8B /* Default-Portrait~ipad.png in Resources */,
+				A15891EE14064A21007D1D8B /* Default-Landscape~ipad.png in Resources */,
+				A15891EF14064A2C007D1D8B /* Default.png in Resources */,
+				A15891F11407B011007D1D8B /* README in Resources */,
+				A15891F71407B2E6007D1D8B /* Doxyfile in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A182205D14062C1F0061AB1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A182207214062C1F0061AB1A /* main.m in Sources */,
+				A182207614062C1F0061AB1A /* SparklinesAppDelegate.m in Sources */,
+				A182207A14062C1F0061AB1A /* SparklinesAppDelegate_iPhone.m in Sources */,
+				A182208114062C1F0061AB1A /* SparklinesAppDelegate_iPad.m in Sources */,
+				A15891CD14062F93007D1D8B /* ASBSparkLineView.m in Sources */,
+				A15891D714063196007D1D8B /* SparklinesViewController.m in Sources */,
+				A15891DA14063296007D1D8B /* SparklinesViewController_iPhone.m in Sources */,
+				A15891E114063FB1007D1D8B /* SparklinesViewController_iPad.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A182206E14062C1F0061AB1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A182206F14062C1F0061AB1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A182207B14062C1F0061AB1A /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A182207C14062C1F0061AB1A /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A182208214062C1F0061AB1A /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A182208314062C1F0061AB1A /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A182208514062C1F0061AB1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A182208614062C1F0061AB1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A182208814062C1F0061AB1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sparklines/Sparklines-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Sparklines/Sparklines-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A182208914062C1F0061AB1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sparklines/Sparklines-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Sparklines/Sparklines-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A182205B14062C1F0061AB1A /* Build configuration list for PBXProject "Sparklines" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A182208514062C1F0061AB1A /* Debug */,
+				A182208614062C1F0061AB1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A182208714062C1F0061AB1A /* Build configuration list for PBXNativeTarget "Sparklines" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A182208814062C1F0061AB1A /* Debug */,
+				A182208914062C1F0061AB1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A182205814062C1F0061AB1A /* Project object */;
+}
