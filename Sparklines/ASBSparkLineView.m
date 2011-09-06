@@ -49,6 +49,8 @@ static const CGFloat  GRAPH_X_BORDER        = 2.0f;     // horizontal border wid
 static const CGFloat  GRAPH_Y_BORDER        = 2.0f;     // vertical border width for the graph line (in points)
 static const CGFloat  GRAPH_PEN_WIDTH       = 1.0f;     // pen width for the graph line (in *pixels*)
 
+static const CGFloat  CONSTANT_GRAPH_BUFFER = 0.1f;     // fraction to move the graph limits when min = max
+
 #define DEFAULT_LABEL_COL        darkGrayColor          // default label text colour
 #define DEFAULT_CURRENTVALUE_COL blueColor              // default current value colour (including the anchor marker)
 #define DEFAULT_OVERLAY_COL      colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0   // default overlay colour (light gray)
@@ -376,6 +378,12 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
         }
     }
 
+    // special case if min = max, push the limits 10% further
+    if (graphMin == graphMax) {
+        graphMin *= 1.0f - CONSTANT_GRAPH_BUFFER;
+        graphMax *= 1.0f + CONSTANT_GRAPH_BUFFER;
+    }
+    
     // show the graph overlay if (still) enabled
     if (self.showRangeOverlay) {
 
