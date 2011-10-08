@@ -47,7 +47,6 @@ static const CGFloat  MARKER_MAX_SIZE       = 8.0f;     // maximum size of the a
 
 static const CGFloat  GRAPH_X_BORDER        = 2.0f;     // horizontal border width for the graph line (in points)
 static const CGFloat  GRAPH_Y_BORDER        = 2.0f;     // vertical border width for the graph line (in points)
-static const CGFloat  GRAPH_PEN_WIDTH       = 1.0f;     // pen width for the graph line (in *pixels*)
 
 static const CGFloat  CONSTANT_GRAPH_BUFFER = 0.1f;     // fraction to move the graph limits when min = max
 
@@ -55,6 +54,9 @@ static const CGFloat  CONSTANT_GRAPH_BUFFER = 0.1f;     // fraction to move the 
 #define DEFAULT_CURRENTVALUE_COL blueColor              // default current value colour (including the anchor marker)
 #define DEFAULT_OVERLAY_COL      colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0   // default overlay colour (light gray)
 #define PEN_COL                  blackColor             // default graph line colour (black)
+#define GRAPH_PEN_WIDTH_VALUE    1.0f
+
+static const CGFloat  GRAPH_PEN_WIDTH       = GRAPH_PEN_WIDTH_VALUE;     // pen width for the graph line (in *pixels*)
 
 // no user-tweakable bits beyond this point...
 
@@ -88,6 +90,10 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 @synthesize showRangeOverlay=m_showRangeOverlay, rangeOverlayColor=m_rangeOverlayColour;
 @synthesize rangeOverlayLowerLimit=m_rangeOverlayLowerLimit, rangeOverlayUpperLimit=m_rangeOverlayUpperLimit;
 @synthesize dataMinimum=m_dataMinimum, dataMaximum=m_dataMaximum;
+
+// the penColor & width
+@synthesize penColor;
+@synthesize penWidth;
 
 
 #pragma mark Property Accessors
@@ -411,8 +417,19 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     CGFloat yInc = sparkHeight / (graphMax - graphMin);
     
     // ensure the pen is a suitable width for the device we are on (i.e. we use *pixels* and not points)
-    CGContextSetLineWidth(context, GRAPH_PEN_WIDTH / self.contentScaleFactor);
-    [[UIColor PEN_COL] setStroke];
+    
+    if (self.penWidth) {
+        CGContextSetLineWidth(context, self.penWidth / self.contentScaleFactor);
+    } else {
+        CGContextSetLineWidth(context, GRAPH_PEN_WIDTH / self.contentScaleFactor);
+    }
+
+    // Customisation to allow pencolour changes
+    if (self.penColor) {
+        [self.penColor setStroke];
+    } else {
+        [[UIColor PEN_COL] setStroke];
+    }
     
     CGContextBeginPath(context);
 

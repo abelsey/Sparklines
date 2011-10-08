@@ -136,6 +136,13 @@
 //! The UIColor used for the range overlay.
 @property (nonatomic, retain) UIColor *rangeOverlayColor;
 
+//! The UIColor used for the sparkline colour itself
+@property (nonatomic, retain) UIColor *penColor;
+
+//! The float value used for the sparkline pen width
+@property (nonatomic) float penWidth;
+
+
 /**
  \brief The lower limit of the range overlay.
  
