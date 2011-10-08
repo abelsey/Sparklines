@@ -20,3 +20,18 @@ are.
 
 ------------------------
 Andy Belsey, August 2011
+
+
+----------------------------------
+2011-10-0
+Forked from https://github.com/abelsey/Sparklines.git by Tim Duckett
+tim@timduckett.co.uk / http://adoptioncurve.net
+
+Added two additional properties to ASBSparkLineView:
+
+UIColor *penColor	- 	UIColor for the sparkline
+float penWidth		-	the sparkline with in pixels
+
+Note - the draw methods don't adjust for the pen width, so 
+large penWidth value are likely to cause clipping of the sparkline
+as it intercepts the upper and lower boundaries. Sorry about that :(
