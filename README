@@ -23,6 +23,13 @@ Andy Belsey, August 2011
 
 
 ----------------------------------
+2011-10-10
+Fixed the pen width issue mentioned by Tim below. Also removed the
+delegate and view-controller sub-classes to simplify the project.
+Andy Belsey
+
+
+----------------------------------
 2011-10-0
 Forked from https://github.com/abelsey/Sparklines.git by Tim Duckett
 tim@timduckett.co.uk / http://adoptioncurve.net
