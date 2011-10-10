@@ -54,16 +54,16 @@ static const CGFloat  CONSTANT_GRAPH_BUFFER = 0.1f;     // fraction to move the 
 #define DEFAULT_CURRENTVALUE_COL blueColor              // default current value colour (including the anchor marker)
 #define DEFAULT_OVERLAY_COL      colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0   // default overlay colour (light gray)
 #define PEN_COL                  blackColor             // default graph line colour (black)
-#define GRAPH_PEN_WIDTH_VALUE    1.0f
+#define DEFAULT_GRAPH_PEN_WIDTH  1.0f
 
-static const CGFloat  GRAPH_PEN_WIDTH       = GRAPH_PEN_WIDTH_VALUE;     // pen width for the graph line (in *pixels*)
+static const CGFloat  GRAPH_PEN_WIDTH       = DEFAULT_GRAPH_PEN_WIDTH;     // pen width for the graph line (in *pixels*)
 
 // no user-tweakable bits beyond this point...
 
 
 #pragma mark Private Interface
 
-static inline float yPlotValue(float maxHeight, float yInc, float val, float minVal);
+static inline float yPlotValue(float maxHeight, float yInc, float val, float minVal, float penWidth);
 
 // private interface section
 @interface ASBSparkLineView()
@@ -393,11 +393,11 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
         // set the graph location of the overlay upper and lower limits, if defined
         if (self.rangeOverlayUpperLimit != nil) {
             overlayOrigin = yPlotValue(fullHeight, sparkHeight / (graphMax - graphMin),
-                                       [self.rangeOverlayUpperLimit floatValue], graphMin);
+                                       [self.rangeOverlayUpperLimit floatValue], graphMin, self.penWidth);
         }
         if (self.rangeOverlayLowerLimit != nil) {
             float lowerY = yPlotValue(fullHeight, sparkHeight / (graphMax - graphMin),
-                                       [self.rangeOverlayLowerLimit floatValue], graphMin);
+                                       [self.rangeOverlayLowerLimit floatValue], graphMin, self.penWidth);
             overlayHeight = lowerY - overlayOrigin;
         }
 
@@ -410,8 +410,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     // X scale is set to show all values
     const CGFloat xinc = sparkWidth / ([self.dataValues count] - 1);
     
-    // Y scale is auto-zoomed to specified limits
-    CGFloat yInc = sparkHeight / (graphMax - graphMin);
+    // Y scale is auto-zoomed to specified limits (allowing for pen width)
+    CGFloat yInc = (sparkHeight - self.penWidth) / (graphMax - graphMin);
     
     // ensure the pen is a suitable width for the device we are on (i.e. we use *pixels* and not points)
     if (self.penWidth) {
@@ -437,10 +437,10 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
         // warning and zero value for any non-NSNumber objects
         if ([obj isKindOfClass:[NSNumber class]]) {
-            ypos = yPlotValue(fullHeight, yInc, [obj floatValue], graphMin);
+            ypos = yPlotValue(fullHeight, yInc, [obj floatValue], graphMin, self.penWidth);
         } else {
             NSLog(@"non-NSNumber object (%@) found in data (index %d), zero value used", [[obj class] description], idx);
-            ypos = yPlotValue(fullHeight, yInc, 0.0f, graphMin);
+            ypos = yPlotValue(fullHeight, yInc, 0.0f, graphMin, self.penWidth);
         }
 
         if (idx > 0)
@@ -456,7 +456,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     if (self.showCurrentValue) {
 
         const CGFloat markX = (xinc * ([self.dataValues count]-1)) + GRAPH_X_BORDER;
-        const CGFloat markY = yPlotValue(fullHeight, yInc, [self.dataCurrentValue floatValue], graphMin);
+        const CGFloat markY = yPlotValue(fullHeight, yInc, [self.dataCurrentValue floatValue], graphMin, self.penWidth);
 
         // calculate the accent marker size, with limits
         CGFloat markSize = fullHeight * DEF_MARKER_SIZE_FRAC;
@@ -473,8 +473,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 
 // returns the Y plot value, given the limitations we have
-static inline float yPlotValue(float maxHeight, float yInc, float val, float offset) {
-    return maxHeight - ((yInc * (val - offset)) + GRAPH_Y_BORDER);
+static inline float yPlotValue(float maxHeight, float yInc, float val, float offset, float penWidth) {
+    return maxHeight - ((yInc * (val - offset)) + GRAPH_Y_BORDER + (penWidth / 2.0f));
 }
 
 @end

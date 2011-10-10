@@ -148,12 +148,16 @@ const float heartRateMaxLimit = 85;
     self.sparkLineView2.dataValues = m_temperatureData;
     self.sparkLineView2.labelText = @"Temp";
     self.sparkLineView2.currentValueColor = darkGreen;
-    
+    self.sparkLineView2.penColor = [UIColor blueColor];
+    self.sparkLineView2.penWidth = 2.0f;
+
     self.sparkLineView3.dataValues = m_heartRateData;
     self.sparkLineView3.labelText = @"Pulse";
     self.sparkLineView3.currentValueColor = darkGreen;
     self.sparkLineView3.currentValueFormat = @"%.0f";
-    
+    self.sparkLineView3.penColor = [UIColor redColor];
+    self.sparkLineView3.penWidth = 3.0f;
+
     // large ones are 4 - 6
     self.sparkLineView4.dataValues = m_glucoseData;
     self.sparkLineView4.labelText = @"Glucose";
