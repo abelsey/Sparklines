@@ -28,13 +28,26 @@
  */
 
 #import "SparklinesAppDelegate.h"
+#import "SparklinesViewController.h"
 
 @implementation SparklinesAppDelegate
 
-@synthesize window = _window;
+@synthesize window = _window, viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    // Override point for customization after application launch.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.viewController = [[SparklinesViewController alloc] initWithNibName:@"SparklinesViewController_iPhone" bundle:nil];
+    } else {
+        self.viewController = [[SparklinesViewController alloc] initWithNibName:@"SparklinesViewController_iPad" bundle:nil];
+    }
+
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
@@ -73,6 +86,7 @@
 }
 
 - (void)dealloc {
+    [_viewController release];
     [_window release];
     [super dealloc];
 }

@@ -29,8 +29,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class SparklinesViewController;
+
 @interface SparklinesAppDelegate : NSObject <UIApplicationDelegate>
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) SparklinesViewController *viewController;
 
 @end

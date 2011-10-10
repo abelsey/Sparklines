@@ -90,10 +90,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 @synthesize showRangeOverlay=m_showRangeOverlay, rangeOverlayColor=m_rangeOverlayColour;
 @synthesize rangeOverlayLowerLimit=m_rangeOverlayLowerLimit, rangeOverlayUpperLimit=m_rangeOverlayUpperLimit;
 @synthesize dataMinimum=m_dataMinimum, dataMaximum=m_dataMaximum;
-
-// the penColor & width
-@synthesize penColor;
-@synthesize penWidth;
+@synthesize penColor=m_penColor, penWidth=m_penWidth;
 
 
 #pragma mark Property Accessors
@@ -417,7 +414,6 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     CGFloat yInc = sparkHeight / (graphMax - graphMin);
     
     // ensure the pen is a suitable width for the device we are on (i.e. we use *pixels* and not points)
-    
     if (self.penWidth) {
         CGContextSetLineWidth(context, self.penWidth / self.contentScaleFactor);
     } else {

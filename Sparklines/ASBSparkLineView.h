@@ -111,6 +111,9 @@
     UIColor *m_rangeOverlayColour;
     NSNumber *m_rangeOverlayLowerLimit;
     NSNumber *m_rangeOverlayUpperLimit;
+    
+    UIColor *m_penColor;
+    CGFloat m_penWidth;
 
     NSNumber *m_dataMinimum;
     NSNumber *m_dataMaximum;
@@ -140,7 +143,7 @@
 @property (nonatomic, retain) UIColor *penColor;
 
 //! The float value used for the sparkline pen width
-@property (nonatomic) float penWidth;
+@property (nonatomic) CGFloat penWidth;
 
 
 /**
