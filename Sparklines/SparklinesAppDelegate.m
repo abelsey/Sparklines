@@ -39,11 +39,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[SparklinesViewController alloc] initWithNibName:@"SparklinesViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[SparklinesViewController alloc] initWithNibName:@"SparklinesViewController_iPad" bundle:nil];
-    }
+    NSString *nibName = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? @"SparklinesViewController_iPhone" : @"SparklinesViewController_iPad";
+    self.viewController = [[[SparklinesViewController alloc] initWithNibName:nibName bundle:nil] autorelease];
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
