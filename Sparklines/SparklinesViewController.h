@@ -34,13 +34,13 @@
 @interface SparklinesViewController : UIViewController
 
 // these are all linked in the xib document
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineView1;
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineView2;
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineView3;
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineView4;
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineView5;
-@property (nonatomic, assign) IBOutlet ASBSparkLineView *sparkLineView6;
-@property (nonatomic, retain) NSArray *allSparklines;
+@property (nonatomic, weak) IBOutlet ASBSparkLineView *sparkLineView1;
+@property (nonatomic, weak) IBOutlet ASBSparkLineView *sparkLineView2;
+@property (nonatomic, weak) IBOutlet ASBSparkLineView *sparkLineView3;
+@property (nonatomic, weak) IBOutlet ASBSparkLineView *sparkLineView4;
+@property (nonatomic, weak) IBOutlet ASBSparkLineView *sparkLineView5;
+@property (nonatomic, weak) IBOutlet ASBSparkLineView *sparkLineView6;
+@property (nonatomic, strong) NSArray *allSparklines;
 
 -(IBAction)toggleShowOverlays:(id)sender;
 -(IBAction)toggleCurrentValues:(id)sender;

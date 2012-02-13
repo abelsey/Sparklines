@@ -10,8 +10,8 @@
 #import "SparklinesAppDelegate.h"
 
 int main(int argc, char *argv[]) {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([SparklinesAppDelegate class]));
-    [pool release];
-    return retVal;
+    @autoreleasepool {
+        int retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([SparklinesAppDelegate class]));
+        return retVal;
+    }
 }

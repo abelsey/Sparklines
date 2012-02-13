@@ -107,26 +107,17 @@ const float heartRateMaxLimit = 85;
                 if ([scanner scanFloat:&scannedValue]) {
                     NSNumber *num = [[NSNumber alloc] initWithFloat:scannedValue];
                     [data addObject:num];
-                    [num release];
                 }
             }
-            [scanner release];
             
         } else {
             NSLog(@"failed to read in data file %@: %@", [fileNames objectAtIndex:idx], [err localizedDescription]);
         }
         
-        [contents release];
     }];
 
 }
 
-- (void)dealloc {
-    [m_glucoseData release];
-    [m_temperatureData release];
-    [m_heartRateData release];
-    [super dealloc];
-}
 
 
 #pragma mark - View lifecycle

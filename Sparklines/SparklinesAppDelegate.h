@@ -33,7 +33,7 @@
 
 @interface SparklinesAppDelegate : NSObject <UIApplicationDelegate>
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) SparklinesViewController *viewController;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) SparklinesViewController *viewController;
 
 @end
