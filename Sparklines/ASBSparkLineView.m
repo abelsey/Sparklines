@@ -103,8 +103,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 // all the set accessors below are needed to cause a re-display on change
 - (void)setDataValues:(NSArray *)dataValues {
     if (![m_dataValues isEqualToArray:dataValues]) {
-        [m_dataValues release];
-        m_dataValues = [dataValues retain];
+        
+        m_dataValues = dataValues;
         [self createDataStatistics];
         [self setNeedsDisplay];
     }
@@ -112,7 +112,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 - (void)setLabelText:(NSString *)labelText {
     if (![m_labelText isEqualToString:labelText]) {
-        [m_labelText release];
+       
         m_labelText = [labelText copy];
         [self setNeedsDisplay];
     }
@@ -120,8 +120,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 - (void)setLabelColor:(UIColor *)labelColor {
     if (![m_labelColour isEqual:labelColor]) {
-        [m_labelColour release];
-        m_labelColour = [labelColor retain];
+       
+        m_labelColour = labelColor;
         [self setNeedsDisplay];
     }
 }
@@ -135,15 +135,15 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 -(void)setCurrentValueColor:(UIColor *)currentValueColor {
     if (![m_currentValueColour isEqual:currentValueColor]) {
-        [m_currentValueColour release];
-        m_currentValueColour = [currentValueColor retain];
+       
+        m_currentValueColour = currentValueColor;
         [self setNeedsDisplay];
     }
 }
 
 -(void)setCurrentValueFormat:(NSString *)currentValueFormat {
     if (![m_currentValueFormat isEqualToString:currentValueFormat]) {
-        [m_currentValueFormat release];
+        
         m_currentValueFormat = [currentValueFormat copy];
         [self setNeedsDisplay];
     }
@@ -158,15 +158,15 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 -(void)setRangeOverlayColor:(UIColor *)rangeOverlayColor {
     if (![m_rangeOverlayColour isEqual:rangeOverlayColor]) {
-        [m_rangeOverlayColour release];
-        m_rangeOverlayColour = [rangeOverlayColor retain];
+        
+        m_rangeOverlayColour = rangeOverlayColor;
         [self setNeedsDisplay];
     }
 }
 
 -(void)setRangeOverlayLowerLimit:(NSNumber *)rangeOverlayLowerLimit {
     if (rangeOverlayLowerLimit && ![m_rangeOverlayLowerLimit isEqualToNumber:rangeOverlayLowerLimit]) {
-        [m_rangeOverlayLowerLimit release];
+       
         m_rangeOverlayLowerLimit = [rangeOverlayLowerLimit copy];
     }
     [self setNeedsDisplay];
@@ -174,7 +174,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 -(void)setRangeOverlayUpperLimit:(NSNumber *)rangeOverlayUpperLimit {
     if (rangeOverlayUpperLimit && ![m_rangeOverlayUpperLimit isEqualToNumber:rangeOverlayUpperLimit]) {
-        [m_rangeOverlayUpperLimit release];
+        
         m_rangeOverlayUpperLimit = [rangeOverlayUpperLimit copy];
     }
     [self setNeedsDisplay];
@@ -187,8 +187,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
     self = [super initWithFrame:frame];
     if (self) {
-        m_dataValues = [data retain];
-        m_labelText = [label retain];
+        m_dataValues = data;
+        m_labelText = label;
         [self createDataStatistics];
         [self setup];
         [self setNeedsDisplay];
@@ -212,29 +212,18 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     [self setup];
 }
 
-// we're not using ARC (yet...)
-- (void)dealloc {
-    [m_dataValues release];
-    [m_labelText release];
-    [m_labelColour release];
-    [m_currentValueColour release];
-    [m_rangeOverlayColour release];
-    [m_rangeOverlayLowerLimit release];
-    [m_rangeOverlayUpperLimit release];
-    [super dealloc];
-}
 
 // configures the defaults (used in init or when waking from a nib)
 - (void)setup {
     
-    m_labelColour = [[UIColor DEFAULT_LABEL_COL] retain];
+    m_labelColour = [UIColor DEFAULT_LABEL_COL];
     
     m_showCurrentValue = YES;
-    m_currentValueColour = [[UIColor DEFAULT_CURRENTVALUE_COL] retain];
+    m_currentValueColour = [UIColor DEFAULT_CURRENTVALUE_COL];
     m_currentValueFormat = @"%.1f";
     
     m_showRangeOverlay = NO;
-    m_rangeOverlayColour = [[UIColor DEFAULT_OVERLAY_COL] retain];
+    m_rangeOverlayColour = [UIColor DEFAULT_OVERLAY_COL];
     m_rangeOverlayLowerLimit = [self.dataMinimum copy];
     m_rangeOverlayUpperLimit = [self.dataMaximum copy];
     
@@ -298,6 +287,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     const CGFloat maxTextWidth = CGRectGetWidth(self.bounds) * MAX_TEXT_FRAC;
 
     // see how much text we have to show
+    if ( self.labelText == nil )
+        self.labelText = @"not set";
+    
     NSMutableString *graphText = [[NSMutableString alloc] initWithString:self.labelText];
     if (self.showCurrentValue) {
         [graphText appendString:@" "];
@@ -312,8 +304,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
                                actualFontSize:&actualFontSize
                                      forWidth:maxTextWidth
                                 lineBreakMode:UILineBreakModeClip];
-    // done with this now
-    [graphText release];
+   
     
     // first we draw the label
     const CGFloat textStartX = (CGRectGetWidth(self.bounds) * 0.975f) - textSize.width;
