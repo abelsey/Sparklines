@@ -176,7 +176,7 @@
 		A182205814062C1F0061AB1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = A182205B14062C1F0061AB1A /* Build configuration list for PBXProject "Sparklines" */;
 			compatibilityVersion = "Xcode 3.2";
