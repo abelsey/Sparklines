@@ -104,7 +104,10 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 - (void)setDataValues:(NSArray *)dataValues {
     if (![m_dataValues isEqualToArray:dataValues]) {
         
+        [m_dataValues release];
         m_dataValues = dataValues;
+        [m_dataValues retain];
+
         [self createDataStatistics];
         [self setNeedsDisplay];
     }
@@ -113,6 +116,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 - (void)setLabelText:(NSString *)labelText {
     if (![m_labelText isEqualToString:labelText]) {
        
+       [m_labelText release];
         m_labelText = [labelText copy];
         [self setNeedsDisplay];
     }
@@ -121,7 +125,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 - (void)setLabelColor:(UIColor *)labelColor {
     if (![m_labelColour isEqual:labelColor]) {
        
+        [m_labelColour release];
         m_labelColour = labelColor;
+        [m_labelColour retain];
         [self setNeedsDisplay];
     }
 }
@@ -136,7 +142,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 -(void)setCurrentValueColor:(UIColor *)currentValueColor {
     if (![m_currentValueColour isEqual:currentValueColor]) {
        
+        [m_currentValueColour release]; 
         m_currentValueColour = currentValueColor;
+        [m_currentValueColour retain];
         [self setNeedsDisplay];
     }
 }
@@ -144,6 +152,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 -(void)setCurrentValueFormat:(NSString *)currentValueFormat {
     if (![m_currentValueFormat isEqualToString:currentValueFormat]) {
         
+        [m_currentValueFormat release];
         m_currentValueFormat = [currentValueFormat copy];
         [self setNeedsDisplay];
     }
@@ -159,7 +168,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 -(void)setRangeOverlayColor:(UIColor *)rangeOverlayColor {
     if (![m_rangeOverlayColour isEqual:rangeOverlayColor]) {
         
+        [m_rangeOverlayColour release];
         m_rangeOverlayColour = rangeOverlayColor;
+        [m_rangeOverlayColour retain];
         [self setNeedsDisplay];
     }
 }
@@ -167,6 +178,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 -(void)setRangeOverlayLowerLimit:(NSNumber *)rangeOverlayLowerLimit {
     if (rangeOverlayLowerLimit && ![m_rangeOverlayLowerLimit isEqualToNumber:rangeOverlayLowerLimit]) {
        
+       [m_rangeOverlayLowerLimit release];
         m_rangeOverlayLowerLimit = [rangeOverlayLowerLimit copy];
     }
     [self setNeedsDisplay];
@@ -175,6 +187,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 -(void)setRangeOverlayUpperLimit:(NSNumber *)rangeOverlayUpperLimit {
     if (rangeOverlayUpperLimit && ![m_rangeOverlayUpperLimit isEqualToNumber:rangeOverlayUpperLimit]) {
         
+        [m_rangeOverlayUpperLimit release];
         m_rangeOverlayUpperLimit = [rangeOverlayUpperLimit copy];
     }
     [self setNeedsDisplay];
@@ -188,7 +201,11 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     self = [super initWithFrame:frame];
     if (self) {
         m_dataValues = data;
+        [m_dataValues retain];
+
         m_labelText = label;
+        [m_labelText retain];
+
         [self createDataStatistics];
         [self setup];
         [self setNeedsDisplay];
@@ -199,33 +216,47 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 // convienence initializer
 - (id)initWithData:(NSArray *)data frame:(CGRect)frame {
-    return [self initWithData:data frame:frame label:nil];
+    return [self initWithData:data frame:frame label:[NSString string]];
 }
 
 // convienence initializer
 - (id)initWithFrame:(CGRect)frame {
-    return [self initWithData:[NSArray array] frame:frame label:nil];
+    return [self initWithData:[NSArray array] frame:frame label:[NSString string]];
 }
 
-// convienence initializer
-- (void)awakeFromNib {
-    [self setup];
+// dealloc
+- (void)dealloc {
+    [m_dataValues release];
+    [m_labelText release];
+    [m_labelColour release];
+    [m_currentValueColour release];
+    [m_rangeOverlayColour release];
+    if (m_rangeOverlayLowerLimit)
+        [m_rangeOverlayLowerLimit release];
+    if (m_rangeOverlayUpperLimit)
+        [m_rangeOverlayUpperLimit release];
+    [m_penColor release];
+
+    [super dealloc];
 }
 
 
 // configures the defaults (used in init or when waking from a nib)
 - (void)setup {
     
-    m_labelColour = [UIColor DEFAULT_LABEL_COL];
+    m_labelColour = [[UIColor DEFAULT_LABEL_COL] retain];
     
     m_showCurrentValue = YES;
-    m_currentValueColour = [UIColor DEFAULT_CURRENTVALUE_COL];
+    m_currentValueColour = [[UIColor DEFAULT_CURRENTVALUE_COL] retain];
     m_currentValueFormat = @"%.1f";
+
+    m_dataMinimum = [[NSNumber alloc] init];
+    m_dataMaximum = [[NSNumber alloc] init];
     
     m_showRangeOverlay = NO;
-    m_rangeOverlayColour = [UIColor DEFAULT_OVERLAY_COL];
-    m_rangeOverlayLowerLimit = [self.dataMinimum copy];
-    m_rangeOverlayUpperLimit = [self.dataMaximum copy];
+    m_rangeOverlayColour = [[UIColor DEFAULT_OVERLAY_COL] retain];
+    m_rangeOverlayLowerLimit = nil;
+    m_rangeOverlayUpperLimit = nil;
     
     // ensure we redraw correctly when resized
     self.contentMode = UIViewContentModeRedraw;
@@ -233,6 +264,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     // and we have a nice rounded shape...
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 5.0f;
+
+    // pen color
+    m_penColor = [[UIColor PEN_COL] retain];
 }
 
 // ingests the data values, and calculates the min and max values (for auto-scaling)
@@ -277,6 +311,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 // draws all the elements of this view
 - (void)drawRect:(CGRect)rect {
+    NSLog(@"ASBSparkLineView: starting draw");
 
     CGContextRef context = UIGraphicsGetCurrentContext();
 
@@ -291,6 +326,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
         self.labelText = @"not set";
     
     NSMutableString *graphText = [[NSMutableString alloc] initWithString:self.labelText];
+
     if (self.showCurrentValue) {
         [graphText appendString:@" "];
         [graphText appendFormat:self.currentValueFormat, [self.dataCurrentValue floatValue]];
@@ -304,8 +340,9 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
                                actualFontSize:&actualFontSize
                                      forWidth:maxTextWidth
                                 lineBreakMode:UILineBreakModeClip];
+
+    [graphText release];
    
-    
     // first we draw the label
     const CGFloat textStartX = (CGRectGetWidth(self.bounds) * 0.975f) - textSize.width;
     const CGFloat textStartY = CGRectGetMidY(self.bounds) - (textSize.height / 2.0f);
@@ -325,7 +362,6 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
         CGContextRestoreGState(context);
     }
     
-
     // ---------------------------------------------------
     // Graph Drawing
     // ---------------------------------------------------
@@ -342,6 +378,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
     const CGFloat fullHeight = CGRectGetHeight(self.bounds);
     const CGFloat sparkWidth  = (fullWidth  - (2 * GRAPH_X_BORDER)) * graphFrac;
     const CGFloat sparkHeight = fullHeight - (2 * GRAPH_Y_BORDER);
+    NSLog(@"ASBSparkLineView: full height: %f, spark height: %f",fullHeight,sparkHeight);
 
     // defaults: upper and lower graph bounds are data maximum and minimum, respectively
     float graphMax = dataMax;
@@ -371,6 +408,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
             graphMin = rangeLower;
         }
     }
+
 
     // special case if min = max, push the limits 10% further
     if (graphMin == graphMax) {
@@ -411,14 +449,10 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
         CGContextSetLineWidth(context, GRAPH_PEN_WIDTH / self.contentScaleFactor);
     }
 
-    // Customisation to allow pencolour changes
-    if (self.penColor) {
-        [self.penColor setStroke];
-    } else {
-        [[UIColor PEN_COL] setStroke];
-    }
+    [self.penColor setStroke];
     
     CGContextBeginPath(context);
+
 
     // iterate over the data items, plotting the graph path
     [self.dataValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

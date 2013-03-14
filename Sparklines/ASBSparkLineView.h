@@ -120,27 +120,27 @@
 }
 
 //! Holds the array of \b NSNumber values to display.
-@property (nonatomic, strong) NSArray *dataValues;
+@property (nonatomic, retain) NSArray *dataValues;
 
 //! The text to be displayed beside the graph data.
 @property (nonatomic, copy) NSString *labelText;
 //! The colour of the label text (default: dark gray).
-@property (nonatomic, strong) UIColor *labelColor;
+@property (nonatomic, retain) UIColor *labelColor;
 
 //! Flag to enable display of the numerical current (last) value (default: YES).
 @property (nonatomic) BOOL showCurrentValue;
 //! The UIColor used to display the numeric current value and the marker anchor.
-@property (nonatomic, strong) UIColor *currentValueColor;
+@property (nonatomic, retain) UIColor *currentValueColor;
 //! The format (in printf() style) of the numeric current value.
 @property (nonatomic, copy) NSString *currentValueFormat;
 
 //! Flag to enable the display of the range overlay (default: NO).
 @property (nonatomic) BOOL showRangeOverlay;
 //! The UIColor used for the range overlay.
-@property (nonatomic, strong) UIColor *rangeOverlayColor;
+@property (nonatomic, retain) UIColor *rangeOverlayColor;
 
 //! The UIColor used for the sparkline colour itself
-@property (nonatomic, strong) UIColor *penColor;
+@property (nonatomic, retain) UIColor *penColor;
 
 //! The float value used for the sparkline pen width
 @property (nonatomic) CGFloat penWidth;
@@ -173,7 +173,7 @@
 //! Maximum data value found (read-only).
 @property (nonatomic, copy, readonly) NSNumber *dataMaximum;
 //! The current (last) value of the data series.
-@property (weak, readonly) NSNumber *dataCurrentValue;
+@property (assign, readonly) NSNumber *dataCurrentValue;
 
 
 /**
