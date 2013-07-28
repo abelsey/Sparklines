@@ -90,11 +90,11 @@
 		A182205614062C1F0061AB1A = {
 			isa = PBXGroup;
 			children = (
-				A1A1FF9217A59D6500933331 /* Default-568h@2x.png */,
 				A182206B14062C1F0061AB1A /* Sparklines */,
 				A15891C414062F3B007D1D8B /* Icon.png */,
 				A15891E6140647F2007D1D8B /* Default.png */,
 				A1F008DE1442F36D0079E3C0 /* Default@2x.png */,
+				A1A1FF9217A59D6500933331 /* Default-568h@2x.png */,
 				A1361C001442F80B006011FD /* Default-Portrait~ipad.png */,
 				A1361C031442F80F006011FD /* Default-Landscape~ipad.png */,
 				A15891C614062F40007D1D8B /* Icon@2x.png */,
