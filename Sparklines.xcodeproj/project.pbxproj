@@ -26,6 +26,7 @@
 		A182207014062C1F0061AB1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A182206E14062C1F0061AB1A /* InfoPlist.strings */; };
 		A182207214062C1F0061AB1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A182207114062C1F0061AB1A /* main.m */; };
 		A182207614062C1F0061AB1A /* SparklinesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A182207514062C1F0061AB1A /* SparklinesAppDelegate.m */; };
+		A1A1FF9317A59D6500933331 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A1FF9217A59D6500933331 /* Default-568h@2x.png */; };
 		A1F008D81442E3CD0079E3C0 /* SparklinesViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F008D41442E3CD0079E3C0 /* SparklinesViewController_iPad.xib */; };
 		A1F008D91442E3CD0079E3C0 /* SparklinesViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F008D61442E3CD0079E3C0 /* SparklinesViewController_iPhone.xib */; };
 		A1F008DF1442F36D0079E3C0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F008DE1442F36D0079E3C0 /* Default@2x.png */; };
@@ -57,6 +58,7 @@
 		A182207314062C1F0061AB1A /* Sparklines-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sparklines-Prefix.pch"; sourceTree = "<group>"; };
 		A182207414062C1F0061AB1A /* SparklinesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SparklinesAppDelegate.h; sourceTree = "<group>"; };
 		A182207514062C1F0061AB1A /* SparklinesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SparklinesAppDelegate.m; sourceTree = "<group>"; };
+		A1A1FF9217A59D6500933331 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A1F008D51442E3CD0079E3C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparklinesViewController_iPad.xib; sourceTree = "<group>"; };
 		A1F008D71442E3CD0079E3C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SparklinesViewController_iPhone.xib; sourceTree = "<group>"; };
 		A1F008DE1442F36D0079E3C0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		A182205614062C1F0061AB1A = {
 			isa = PBXGroup;
 			children = (
+				A1A1FF9217A59D6500933331 /* Default-568h@2x.png */,
 				A182206B14062C1F0061AB1A /* Sparklines */,
 				A15891C414062F3B007D1D8B /* Icon.png */,
 				A15891E6140647F2007D1D8B /* Default.png */,
@@ -176,7 +179,7 @@
 		A182205814062C1F0061AB1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = A182205B14062C1F0061AB1A /* Build configuration list for PBXProject "Sparklines" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -215,6 +218,7 @@
 				A1F008DF1442F36D0079E3C0 /* Default@2x.png in Resources */,
 				A1361C011442F80B006011FD /* Default-Portrait~ipad.png in Resources */,
 				A1361C041442F80F006011FD /* Default-Landscape~ipad.png in Resources */,
+				A1A1FF9317A59D6500933331 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +271,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -280,8 +288,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,14 +301,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,7 +329,7 @@
 				GCC_PREFIX_HEADER = "Sparklines/Sparklines-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Sparklines/Sparklines-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -329,7 +343,7 @@
 				GCC_PREFIX_HEADER = "Sparklines/Sparklines-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Sparklines/Sparklines-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
