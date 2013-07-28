@@ -60,6 +60,12 @@ static const CGFloat  GRAPH_PEN_WIDTH       = DEFAULT_GRAPH_PEN_WIDTH;     // pe
 
 // no user-tweakable bits beyond this point...
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
+    #define ASBLineBreakModeClip NSLineBreakByClipping
+#else
+    #define ASBLineBreakModeClip UILineBreakModeClip
+#endif
+
 
 #pragma mark Private Interface
 
@@ -303,7 +309,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
                                   minFontSize:MIN_FONT_SIZE
                                actualFontSize:&actualFontSize
                                      forWidth:maxTextWidth
-                                lineBreakMode:UILineBreakModeClip];
+                                lineBreakMode:ASBLineBreakModeClip];
    
     
     // first we draw the label
