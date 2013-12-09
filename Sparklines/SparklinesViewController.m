@@ -87,8 +87,8 @@ const float heartRateMaxLimit = 85;
     m_temperatureData = [[NSMutableArray alloc] init];
     m_heartRateData = [[NSMutableArray alloc] init];
 
-    NSArray *dataArray = [NSArray arrayWithObjects:m_glucoseData, m_temperatureData, m_heartRateData, nil];
-    NSArray *fileNames = [NSArray arrayWithObjects:@"glucose_data.txt", @"temperature_data.txt", @"heartRate_data.txt", nil];
+    NSArray *dataArray = @[m_glucoseData, m_temperatureData, m_heartRateData];
+    NSArray *fileNames = @[@"glucose_data.txt", @"temperature_data.txt", @"heartRate_data.txt"];
     
     [fileNames enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
@@ -101,17 +101,17 @@ const float heartRateMaxLimit = 85;
             
             NSScanner *scanner = [[NSScanner alloc] initWithString:contents];
             
-            NSMutableArray *data = [dataArray objectAtIndex:idx];
+            NSMutableArray *data = dataArray[idx];
             while ([scanner isAtEnd] == NO) {
                 float scannedValue = 0;
                 if ([scanner scanFloat:&scannedValue]) {
-                    NSNumber *num = [[NSNumber alloc] initWithFloat:scannedValue];
+                    NSNumber *num = @(scannedValue);
                     [data addObject:num];
                 }
             }
             
         } else {
-            NSLog(@"failed to read in data file %@: %@", [fileNames objectAtIndex:idx], [err localizedDescription]);
+            NSLog(@"failed to read in data file %@: %@", fileNames[idx], [err localizedDescription]);
         }
         
     }];
@@ -167,8 +167,8 @@ const float heartRateMaxLimit = 85;
     self.sparkLineView6.penColor = [UIColor redColor];
     self.sparkLineView6.penWidth = 6.0f;
     
-    self.allSparklines = [NSArray arrayWithObjects:self.sparkLineView1, self.sparkLineView2, self.sparkLineView3,
-                          self.sparkLineView4, self.sparkLineView5, self.sparkLineView6, nil];
+    self.allSparklines = @[self.sparkLineView1, self.sparkLineView2, self.sparkLineView3,
+                          self.sparkLineView4, self.sparkLineView5, self.sparkLineView6];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -193,18 +193,18 @@ const float heartRateMaxLimit = 85;
     // if the overlays are enabled, we define the limits, otherwise we reset them (the view will auto-scale)
     if (self.sparkLineView1.showRangeOverlay) {
         
-        self.sparkLineView1.rangeOverlayLowerLimit = [NSNumber numberWithFloat:glucoseMinLimit];
-        self.sparkLineView1.rangeOverlayUpperLimit = [NSNumber numberWithFloat:glucoseMaxLimit];
-        self.sparkLineView2.rangeOverlayLowerLimit = [NSNumber numberWithFloat:tempMinLimit];
-        self.sparkLineView2.rangeOverlayUpperLimit = [NSNumber numberWithFloat:tempMaxLimit];
-        self.sparkLineView3.rangeOverlayLowerLimit = [NSNumber numberWithFloat:heartRateMinLimit];
-        self.sparkLineView3.rangeOverlayUpperLimit = [NSNumber numberWithFloat:heartRateMaxLimit];
-        self.sparkLineView4.rangeOverlayLowerLimit = [NSNumber numberWithFloat:glucoseMinLimit];
-        self.sparkLineView4.rangeOverlayUpperLimit = [NSNumber numberWithFloat:glucoseMaxLimit];
-        self.sparkLineView5.rangeOverlayLowerLimit = [NSNumber numberWithFloat:tempMinLimit];
-        self.sparkLineView5.rangeOverlayUpperLimit = [NSNumber numberWithFloat:tempMaxLimit];
-        self.sparkLineView6.rangeOverlayLowerLimit = [NSNumber numberWithFloat:heartRateMinLimit];
-        self.sparkLineView6.rangeOverlayUpperLimit = [NSNumber numberWithFloat:heartRateMaxLimit];
+        self.sparkLineView1.rangeOverlayLowerLimit = @(glucoseMinLimit);
+        self.sparkLineView1.rangeOverlayUpperLimit = @(glucoseMaxLimit);
+        self.sparkLineView2.rangeOverlayLowerLimit = @(tempMinLimit);
+        self.sparkLineView2.rangeOverlayUpperLimit = @(tempMaxLimit);
+        self.sparkLineView3.rangeOverlayLowerLimit = @(heartRateMinLimit);
+        self.sparkLineView3.rangeOverlayUpperLimit = @(heartRateMaxLimit);
+        self.sparkLineView4.rangeOverlayLowerLimit = @(glucoseMinLimit);
+        self.sparkLineView4.rangeOverlayUpperLimit = @(glucoseMaxLimit);
+        self.sparkLineView5.rangeOverlayLowerLimit = @(tempMinLimit);
+        self.sparkLineView5.rangeOverlayUpperLimit = @(tempMaxLimit);
+        self.sparkLineView6.rangeOverlayLowerLimit = @(heartRateMinLimit);
+        self.sparkLineView6.rangeOverlayUpperLimit = @(heartRateMaxLimit);
         
     } else {
         // make them all nil, which will result in an auto-scale of the data values

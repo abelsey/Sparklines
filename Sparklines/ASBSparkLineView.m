@@ -210,7 +210,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
 // convienence initializer
 - (id)initWithFrame:(CGRect)frame {
-    return [self initWithData:[NSArray array] frame:frame label:nil];
+    return [self initWithData:@[] frame:frame label:nil];
 }
 
 // convienence initializer
@@ -259,7 +259,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
 
     } else {
 
-        float min = [[m_dataValues objectAtIndex:0] floatValue];
+        float min = [m_dataValues[0] floatValue];
         float max = min;
 
         // extract the min and max values (ignore any non-NSNumber objects)
@@ -273,8 +273,8 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
             }
         }
 
-        self.dataMinimum = [NSNumber numberWithFloat:min];
-        self.dataMaximum = [NSNumber numberWithFloat:max];
+        self.dataMinimum = @(min);
+        self.dataMaximum = @(max);
     }
 }
 
