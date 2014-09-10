@@ -436,7 +436,7 @@ static inline float yPlotValue(float maxHeight, float yInc, float val, float min
         if ([obj isKindOfClass:[NSNumber class]]) {
             ypos = yPlotValue(fullHeight, yInc, [obj floatValue], graphMin, self.penWidth);
         } else {
-            NSLog(@"non-NSNumber object (%@) found in data (index %d), zero value used", [[obj class] description], idx);
+            NSLog(@"non-NSNumber object (%@) found in data (index %lu), zero value used", [[obj class] description], (unsigned long)idx);
             ypos = yPlotValue(fullHeight, yInc, 0.0f, graphMin, self.penWidth);
         }
 
