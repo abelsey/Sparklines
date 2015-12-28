@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3D3AA7461B0457BA40C1BEBA81CE38F8D12E2E5B</key>
-		<string>ssh://github.com/abelsey/Sparklines.git</string>
+		<string>bitbucket.org:abelsey/sparklines.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Sparklines.xcodeproj/project.xcworkspace</string>
+	<string>Sparklines.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3D3AA7461B0457BA40C1BEBA81CE38F8D12E2E5B</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/abelsey/Sparklines.git</string>
+	<string>bitbucket.org:abelsey/sparklines.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
